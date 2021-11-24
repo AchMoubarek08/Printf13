@@ -55,7 +55,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void    ft_putnbr_fd(unsigned long long n, int fd, char c, int *count);
+void    ft_putnbr_hexa(unsigned long long n, char c, int *count);
 int     ft_num_len(unsigned long long n);
 
 #endif

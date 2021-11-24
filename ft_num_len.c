@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-int ft_num_len(unsigned long long n)
+int ft_ull_len(unsigned long long n)
 {
     int count;
 
     count = 0;
-    while(n / 16)
+    while(n / 10)
         count++;
     return (count);
 }
