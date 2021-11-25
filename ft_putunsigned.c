@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 04:57:43 by amoubare          #+#    #+#             */
-/*   Updated: 2021/11/24 22:23:56 by amoubare         ###   ########.fr       */
+/*   Created: 2021/11/25 01:11:20 by amoubare          #+#    #+#             */
+/*   Updated: 2021/11/25 01:16:14 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_putstr_fd(char *s, int fd)
+void    ft_putunsigned(unsigned int n, int *count)
 {
-	if(s)
+    if (n >= 0 && n <= 9)
 	{
-		int	i;
-		i = 0;
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
+		ft_putchar_fd(n + '0', 1);
+		*count += 1;
 	}
 	else
-		write(1, "(null)", 6);
+	{
+		ft_putnbr(n / 10, count);
+		ft_putnbr(n % 10, count);
+	}
 }
+

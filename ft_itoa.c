@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amoubare <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 05:05:27 by amoubare          #+#    #+#             */
-/*   Updated: 2021/11/12 05:05:37 by amoubare         ###   ########.fr       */
+/*   Updated: 2021/11/24 23:04:05 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
-		return (ft_strdup("-2147483684"));
+		return (ft_strdup("-2147483648"));
 	str = NULL;
 	i = 0;
 	count = counter(n);

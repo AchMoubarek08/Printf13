@@ -1,29 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amoubare <amoubare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 04:57:43 by amoubare          #+#    #+#             */
-/*   Updated: 2021/11/24 22:23:56 by amoubare         ###   ########.fr       */
+/*   Created: 2021/11/12 05:06:00 by amoubare          #+#    #+#             */
+/*   Updated: 2021/11/25 00:30:19 by amoubare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr(int n, int *count)
 {
-	if(s)
+	if (n == -2147483648)
 	{
-		int	i;
-		i = 0;
-		while (s[i])
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
+		write(1, "-2147483648", 11);
+		*count += 11;
+	}
+		
+	else if (n >= 0 && n <= 9)
+	{
+		ft_putchar_fd(n + '0', 1);
+		*count += 1;
+	}
+	else if (n < 0)
+	{
+		write (1, "-", 1);
+		*count += 1;
+		ft_putnbr(n *= -1, count);
 	}
 	else
-		write(1, "(null)", 6);
+	{
+		ft_putnbr(n / 10, count);
+		ft_putnbr(n % 10, count);
+	}
 }
+// int main()
+// {
+// 	int a = 47816782;
+// 	printf("\n%d",ft_putnbr_fd(a, 1));
+// }
